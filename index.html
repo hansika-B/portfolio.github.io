@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hansika - Computer Science Engineering Student & Aspiring Software Developer Portfolio.">
+  <title>Hansika | Computer Science Engineering Portfolio</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Playfair Display (Editorial), JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Espresso (#3E2723) & Peony (#F4C9D6) Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Dynamic Interactive Particle Canvas -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- Interactive Glowing Cursor Elements -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">Hansika</span>
+        <span class="logo-cursor">/&gt;</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#hobbies" class="nav-link">Interests</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+
+        <a href="#contact" class="btn btn-sm btn-primary hide-mobile">
+          <span>Get in Touch</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menuToggle" class="icon-btn mobile-menu-btn" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            <span>B.Tech CSE Undergraduate (2024–2028)</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="font-editorial gradient-text">Hansika</span>
+          </h1>
+
+          <div class="typing-container">
+            <span class="typing-prefix">I am an </span>
+            <span class="typing-text" id="typingText"></span>
+            <span class="cursor">&nbsp;</span>
+          </div>
+
+          <p class="hero-description">
+            Passionate Computer Science student at <strong>Vignana Bharathi Institute of Technology</strong>, Hyderabad. 
+            Focused on building intuitive web platforms, mastering object-oriented engineering with 
+            <strong>Java</strong>, <strong>Python</strong> &amp; <strong>C++</strong>, and constantly learning emerging technologies.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>View Projects</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fa-regular fa-envelope"></i>
+              <span>Contact Me</span>
+            </a>
+            <button id="quickCopyEmailHero" class="btn btn-glass" title="Copy email address to clipboard">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Email</span>
+            </button>
+          </div>
+
+          <div class="hero-quick-meta">
+            <div class="meta-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Hyderabad, India</span>
+            </div>
+            <div class="meta-divider">•</div>
+            <div class="meta-item">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>VBIT Hyderabad</span>
+            </div>
+            <div class="meta-divider">•</div>
+            <div class="meta-item">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Open to Opportunities</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="code-card">
+            <div class="code-card-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="code-card-title">developer.json</span>
+              <span class="code-card-tag">#3E2723 / #F4C9D6</span>
+            </div>
+            <pre class="code-card-body"><code><span class="code-key">"developer"</span>: {
+  <span class="code-key">"name"</span>: <span class="code-str">"Hansika"</span>,
+  <span class="code-key">"role"</span>: <span class="code-str">"Computer Science Student"</span>,
+  <span class="code-key">"university"</span>: <span class="code-str">"Vignana Bharathi Inst. of Tech"</span>,
+  <span class="code-key">"degree"</span>: <span class="code-str">"B.Tech CSE (2024-2028)"</span>,
+  <span class="code-key">"palette"</span>: {
+    <span class="code-key">"primary"</span>: <span class="code-str">"Espresso (#3E2723)"</span>,
+    <span class="code-key">"accent"</span>: <span class="code-str">"Peony (#F4C9D6)"</span>
+  },
+  <span class="code-key">"languages"</span>: [<span class="code-str">"Java"</span>, <span class="code-str">"Python"</span>, <span class="code-str">"C++"</span>],
+  <span class="code-key">"passion"</span>: <span class="code-str">"Building impactful web software"</span>,
+  <span class="code-key">"openFor"</span>: [<span class="code-str">"Internships"</span>, <span class="code-str">"Open Source"</span>, <span class="code-str">"Hackathons"</span>]
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- DYNAMIC STATS BANNER -->
+      <div class="container">
+        <div class="stats-banner">
+          <div class="stat-box">
+            <span class="stat-number">2024–28</span>
+            <span class="stat-label">B.Tech CSE at VBIT</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Core Engineering Languages</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Web Platforms &amp; Live Sites</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Curiosity &amp; Growth Mindset</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Get to know me</span>
+          <h2 class="section-title">About <span class="font-editorial gradient-text">Hansika</span></h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card profile-summary-card card">
+            <div class="profile-avatar-banner">
+              <div class="avatar-circle">
+                <span class="avatar-initials">H</span>
+              </div>
+              <div class="avatar-details">
+                <h3 class="avatar-name">Hansika</h3>
+                <p class="avatar-role">Undergraduate Computer Science Engineer</p>
+                <p class="avatar-location"><i class="fa-solid fa-map-pin"></i> Hyderabad, Lokh Apartments</p>
+              </div>
+            </div>
+
+            <p class="about-text">
+              I am a Computer Science Engineering student passionate about software development and eager to dive deep into emerging technologies. 
+              My journey involves building practical applications such as the <strong>Smart Campus Query and Help-Desk System</strong> and the 
+              <strong>Online Barista Cafe Website</strong>.
+            </p>
+            <p class="about-text">
+              I combine analytical problem-solving with creative visual thinking. Beyond pure code, my hobbies include sketching, reading books, and discovering fresh software architecture paradigms. I am committed to continuous improvement and ready to contribute to dynamic software teams.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">B.Tech</span>
+                <span class="highlight-label">Computer Science (2024-2028)</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">3+</span>
+                <span class="highlight-label">Core Languages (Java, Python, C++)</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">3+</span>
+                <span class="highlight-label">Web Projects &amp; Platforms</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">3</span>
+                <span class="highlight-label">Spoken Languages</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-sidebar">
+            <!-- Languages Spoken Card -->
+            <div class="card sidebar-card">
+              <h3 class="sidebar-card-title">
+                <i class="fa-solid fa-language"></i>
+                <span>Languages</span>
+              </h3>
+              <div class="language-list">
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level">Professional &amp; Academic</span>
+                  </div>
+                  <div class="lang-bar"><div class="lang-progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Telugu</span>
+                    <span class="lang-level">Native</span>
+                  </div>
+                  <div class="lang-bar"><div class="lang-progress" style="width: 100%;"></div></div>
+                </div>
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Hindi</span>
+                    <span class="lang-level">Conversational</span>
+                  </div>
+                  <div class="lang-bar"><div class="lang-progress" style="width: 85%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Soft & Core Competencies Card -->
+            <div class="card sidebar-card">
+              <h3 class="sidebar-card-title">
+                <i class="fa-solid fa-brain"></i>
+                <span>Key Competencies</span>
+              </h3>
+              <div class="tags-cloud">
+                <span class="tag-pill"><i class="fa-solid fa-comments"></i> Communication</span>
+                <span class="tag-pill"><i class="fa-solid fa-chart-line"></i> Digital Marketing</span>
+                <span class="tag-pill"><i class="fa-solid fa-handshake"></i> Negotiation</span>
+                <span class="tag-pill"><i class="fa-solid fa-puzzle-piece"></i> Critical Thinking</span>
+                <span class="tag-pill"><i class="fa-solid fa-arrows-spin"></i> Adaptability</span>
+                <span class="tag-pill"><i class="fa-solid fa-people-group"></i> Teamwork</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">What I bring to the table</span>
+          <h2 class="section-title">Technical &amp; <span class="font-editorial gradient-text">Core Skills</span></h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Programming Languages -->
+          <div class="card skill-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="skill-card-title">Technical Skills</h3>
+            <p class="skill-card-desc">Core programming languages utilized in coursework, problem solving, and software design.</p>
+            
+            <div class="skill-list">
+              <div class="skill-meter-item">
+                <div class="skill-meta">
+                  <span class="skill-name"><i class="fa-brands fa-java"></i> Java</span>
+                  <span class="skill-badge">Core &amp; OOP</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-meter-item">
+                <div class="skill-meta">
+                  <span class="skill-name"><i class="fa-brands fa-python"></i> Python</span>
+                  <span class="skill-badge">Scripting &amp; Logic</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-meter-item">
+                <div class="skill-meta">
+                  <span class="skill-name"><i class="fa-solid fa-c"></i> C++</span>
+                  <span class="skill-badge">Data Structures</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="width: 78%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Development & Design -->
+          <div class="card skill-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h3 class="skill-card-title">Web Development</h3>
+            <p class="skill-card-desc">Building responsive, accessible, and user-centric interfaces for applications and websites.</p>
+
+            <div class="skill-list">
+              <div class="skill-meter-item">
+                <div class="skill-meta">
+                  <span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5 &amp; Semantic Web</span>
+                  <span class="skill-badge">Structural Design</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-meter-item">
+                <div class="skill-meta">
+                  <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> CSS3 &amp; Responsive Layouts</span>
+                  <span class="skill-badge">Flexbox &amp; Grid</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-meter-item">
+                <div class="skill-meta">
+                  <span class="skill-name"><i class="fa-brands fa-js"></i> JavaScript Basics</span>
+                  <span class="skill-badge">DOM &amp; Interactivity</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional & Collaborative Skills -->
+          <div class="card skill-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <h3 class="skill-card-title">Professional Skills</h3>
+            <p class="skill-card-desc">Interpersonal and analytical strengths that enhance project execution and cross-functional teamwork.</p>
+
+            <div class="pill-grid">
+              <div class="pill-badge">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span>Communication Skills</span>
+              </div>
+              <div class="pill-badge">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Critical Thinking</span>
+              </div>
+              <div class="pill-badge">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Digital Marketing</span>
+              </div>
+              <div class="pill-badge">
+                <i class="fa-solid fa-handshake-angle"></i>
+                <span>Negotiation</span>
+              </div>
+              <div class="pill-badge">
+                <i class="fa-solid fa-shuffle"></i>
+                <span>Adaptability</span>
+              </div>
+              <div class="pill-badge">
+                <i class="fa-solid fa-people-carry-box"></i>
+                <span>Teamwork</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Hands-on Work</span>
+          <h2 class="section-title">Featured <span class="font-editorial gradient-text">Projects</span></h2>
+          <p class="section-description">
+            Selected software development, web applications, and live website projects built to solve real-world problems.
+          </p>
+          <div class="title-bar"></div>
+        </div>
+
+        <!-- Dynamic Category Filter Bar -->
+        <div class="project-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects (3)</button>
+          <button class="filter-btn" data-filter="web">Web Platforms</button>
+          <button class="filter-btn" data-filter="design">UI/UX &amp; Cafe</button>
+          <button class="filter-btn" data-filter="live">Live Deployed</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Smart Campus Query -->
+          <article class="project-card tilt-card" data-category="web">
+            <div class="project-banner project-banner-campus">
+              <div class="project-badge">Campus Infrastructure</div>
+              <div class="banner-icon"><i class="fa-solid fa-headset"></i></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta-tags">
+                <span class="tag">Web Platform</span>
+                <span class="tag">Help-Desk</span>
+                <span class="tag">Workflow</span>
+              </div>
+              <h3 class="project-title">Smart Campus Query &amp; Help-Desk System</h3>
+              <p class="project-text">
+                Developed a comprehensive web-based platform tailored for university campuses to manage student queries, complaints, and official administrative requests. 
+                Focuses on eliminating communication silos by providing an organized, transparent system between students and campus administrators.
+              </p>
+              
+              <div class="project-features">
+                <h4 class="features-label"><i class="fa-solid fa-circle-check"></i> Key Highlights:</h4>
+                <ul class="features-list">
+                  <li>Centralized ticket submission for academic and campus grievances</li>
+                  <li>Organized communication pipeline between students &amp; administration</li>
+                  <li>Intuitive dashboard design for tracking query resolution status</li>
+                  <li>Responsive layout accessible across phones, tablets, and laptops</li>
+                </ul>
+              </div>
+
+              <div class="project-stack">
+                <span class="stack-item">HTML5</span>
+                <span class="stack-item">CSS3</span>
+                <span class="stack-item">JavaScript</span>
+                <span class="stack-item">System Architecture</span>
+              </div>
+
+              <div class="project-footer">
+                <button class="btn btn-outline open-modal-btn" data-project="campus">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span>Project Details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Online Barista Cafe Website -->
+          <article class="project-card tilt-card" data-category="design">
+            <div class="project-banner project-banner-cafe">
+              <div class="project-badge">E-Commerce &amp; Hospitality</div>
+              <div class="banner-icon"><i class="fa-solid fa-mug-hot"></i></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta-tags">
+                <span class="tag">Responsive Web</span>
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Cafe Menu</span>
+              </div>
+              <h3 class="project-title">Online Barista Cafe Website</h3>
+              <p class="project-text">
+                Designed and developed a responsive cafe website featuring a modern, artisanal interface, interactive digital menu information, and an easy-to-use customer browsing experience.
+              </p>
+
+              <div class="project-features">
+                <h4 class="features-label"><i class="fa-solid fa-circle-check"></i> Key Highlights:</h4>
+                <ul class="features-list">
+                  <li>Modern, warm aesthetic tailored for boutique coffee culture</li>
+                  <li>Interactive categorized menu cards with rich ingredient highlights</li>
+                  <li>Mobile-first responsive architecture ensuring seamless ordering flow</li>
+                  <li>Fast loading speeds with optimized assets and modern typography</li>
+                </ul>
+              </div>
+
+              <div class="project-stack">
+                <span class="stack-item">HTML5</span>
+                <span class="stack-item">CSS3 (Grid &amp; Flexbox)</span>
+                <span class="stack-item">JavaScript (Interactivity)</span>
+                <span class="stack-item">UI/UX</span>
+              </div>
+
+              <div class="project-footer">
+                <button class="btn btn-outline open-modal-btn" data-project="barista">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span>Project Details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Freelancer Platform -->
+          <article class="project-card tilt-card" data-category="web" id="freelancer-platform-card">
+            <div class="project-banner project-banner-custom">
+              <div class="project-badge">Web Platform &amp; Marketplace</div>
+              <div class="banner-icon"><i class="fa-solid fa-briefcase"></i></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta-tags">
+                <span class="tag">Freelancer Platform</span>
+                <span class="tag">Marketplace</span>
+                <span class="tag">Full-Stack</span>
+              </div>
+              <h3 class="project-title" id="customWebTitle">Freelancer Marketplace &amp; Talent Platform</h3>
+              <p class="project-text" id="customWebDesc">
+                Engineered a comprehensive freelancer marketplace bridging independent professionals with clients. Enables seamless project postings, proposal submissions, talent portfolio discovery, and milestone tracking.
+              </p>
+
+              <div class="project-features">
+                <h4 class="features-label"><i class="fa-solid fa-circle-check"></i> Key Highlights:</h4>
+                <ul class="features-list">
+                  <li>Client-freelancer matching pipeline with structured project proposals</li>
+                  <li>Dynamic talent profiles showcasing technical skill matrices &amp; portfolios</li>
+                  <li>Centralized dashboard for contract management &amp; milestone delivery</li>
+                  <li>Fully responsive interface tailored for mobile and desktop screens</li>
+                </ul>
+              </div>
+
+              <div class="project-stack">
+                <span class="stack-item">Web Platform</span>
+                <span class="stack-item">Workflow Logic</span>
+                <span class="stack-item">Database</span>
+                <span class="stack-item">Responsive UI</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="http://localhost/freelancer-platform/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="customWebLink" title="Launch Freelancer Platform">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span>Launch Platform</span>
+                </a>
+                <button class="btn btn-outline open-modal-btn" data-project="freelancer">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span>Project Details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Academic Milestones</span>
+          <h2 class="section-title">Education <span class="font-editorial gradient-text">Journey</span></h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="timeline">
+          <!-- Item 1: B.Tech -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content card">
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-period current-badge">2024 – 2028 (Present)</span>
+                  <h3 class="timeline-degree">B.Tech – Computer Science &amp; Engineering</h3>
+                  <h4 class="timeline-institution">Vignana Bharathi Institute of Technology (VBIT)</h4>
+                </div>
+                <div class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i> Hyderabad, India
+                </div>
+              </div>
+              <p class="timeline-desc">
+                Currently pursuing an undergraduate degree in Computer Science and Engineering. Immersed in coursework covering core programming paradigms, data structures, algorithms, and software development.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Computer Science</span>
+                <span class="tag">Engineering</span>
+                <span class="tag">Software Development</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Intermediate -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="timeline-content card">
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-period">Completed 2023</span>
+                  <h3 class="timeline-degree">Intermediate Education</h3>
+                  <h4 class="timeline-institution">Narayana Junior College</h4>
+                </div>
+                <div class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i> Hyderabad, India
+                </div>
+              </div>
+              <p class="timeline-desc">
+                Completed higher secondary curriculum with a strong focus on mathematics, physics, and analytical fundamentals that built the basis for engineering problem-solving.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Mathematics</span>
+                <span class="tag">Analytical Skills</span>
+                <span class="tag">Science</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: SSC -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="timeline-content card">
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-period">Completed 2021</span>
+                  <h3 class="timeline-degree">Secondary School Certificate (SSC)</h3>
+                  <h4 class="timeline-institution">Narayana Group of Schools</h4>
+                </div>
+                <div class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i> Hyderabad, India
+                </div>
+              </div>
+              <p class="timeline-desc">
+                Foundational schooling with an emphasis on academic excellence, creative arts, and foundational scientific inquiry.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Academic Foundation</span>
+                <span class="tag">Creative Arts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES & INTERESTS SECTION -->
+    <section class="section hobbies-section" id="hobbies">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Beyond The Terminal</span>
+          <h2 class="section-title">Interests &amp; <span class="font-editorial gradient-text">Hobbies</span></h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="hobbies-grid">
+          <div class="hobby-card">
+            <div class="hobby-icon-box">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="hobby-title">Learning New Technologies</h3>
+            <p class="hobby-text">
+              Curious explorer who loves tracking software engineering trends, developer tools, and experimenting with new frameworks to sharpen skills.
+            </p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon-box">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            <h3 class="hobby-title">Reading Books</h3>
+            <p class="hobby-text">
+              Avid reader expanding perspectives on continuous learning, discipline, storytelling, and professional growth.
+            </p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon-box">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <h3 class="hobby-title">Sketching &amp; Visual Design</h3>
+            <p class="hobby-text">
+              Channeling creativity into sketching and visual arts, which directly strengthens my eye for UI/UX, aesthetics, spacing, and user-friendly interface design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Let's Connect</span>
+          <h2 class="section-title">Get in <span class="font-editorial gradient-text">Touch</span></h2>
+          <p class="section-description">
+            Interested in collaboration, internship opportunities, or discussing a project? Feel free to reach out!
+          </p>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Cards -->
+          <div class="contact-info-column">
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4 class="contact-label">Email Address</h4>
+                <a href="mailto:24p61a0535@vbithyd.ac.in" class="contact-value" id="emailText">24p61a0535@vbithyd.ac.in</a>
+              </div>
+              <button class="icon-btn-sm" id="copyEmailBtn" aria-label="Copy Email" title="Copy Email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4 class="contact-label">Phone</h4>
+                <a href="tel:+918309729211" class="contact-value">+91 8309729211</a>
+              </div>
+              <button class="icon-btn-sm" id="copyPhoneBtn" aria-label="Copy Phone" title="Copy Phone">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-details">
+                <h4 class="contact-label">Location</h4>
+                <p class="contact-value">Hyderabad, Lokh Apartments, India</p>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-badge">
+                <span class="status-indicator"></span>
+                <span>Currently Available</span>
+              </div>
+              <p class="status-desc">
+                Open for software internships, student developer roles, hackathons, and innovative project collaborations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-column">
+            <form id="contactForm" class="contact-form card">
+              <h3 class="form-title">Send a Message</h3>
+              
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Alex Smith" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="alex@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-tag input-icon"></i>
+                  <input type="text" id="subject" name="subject" class="form-input" placeholder="Project collaboration / Internship" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <div class="input-wrapper textarea-wrapper">
+                  <i class="fa-regular fa-comment-dots input-icon"></i>
+                  <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Hello Hansika, I would love to connect with you regarding..." required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Detail Modal -->
+  <div id="projectModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modalContent">
+        <!-- Dynamic Content injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">Hansika</span>
+          <span class="logo-cursor">/&gt;</span>
+        </a>
+        <p class="footer-tagline">
+          Computer Science Engineering student at Vignana Bharathi Institute of Technology.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hansika. Designed with precision &amp; code.</p>
+        <p class="footer-note">Espresso (#3E2723) &amp; Peony (#F4C9D6) Dynamic Edition</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
