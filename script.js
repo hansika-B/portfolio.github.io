@@ -486,9 +486,9 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
 
           <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-            <a href="http://localhost/freelancer-platform/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="text-decoration: none;">
+            <a href="https://hansika.infinityfreeapp.com/freelancer-platform/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="text-decoration: none;">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Launch http://localhost/freelancer-platform/</span>
+              <span>Launch Platform</span>
             </a>
             <span class="tag">Marketplace Platform</span>
             <span class="tag">Full-Stack</span>

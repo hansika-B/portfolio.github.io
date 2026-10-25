@@ -35,7 +35,7 @@ Inspired by the editorial luxury palette of **Espresso (`#3E2723`)** and **Peony
 2. **Online Barista Cafe Website**:
    - Responsive cafe platform featuring warm artisanal branding, categorized interactive digital menus, and optimized mobile-first UX.
 
-3. **Freelancer Marketplace Platform** (`http://localhost/freelancer-platform/`):
+3. **Freelancer Marketplace Platform** (`https://hansika.infinityfreeapp.com/freelancer-platform/`):
    - Comprehensive web platform connecting independent professionals with clients.
    - Features client project listings, freelancer proposal submissions, dynamic talent profiles, and milestone tracking.
    - One-click launch button directly integrated in the project card and detail modal.
